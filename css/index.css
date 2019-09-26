@@ -12,6 +12,11 @@ body {
   margin: 0 auto;
   background: white;
 }
+@media (max-width: 800px) {
+  .container {
+    width: 100%;
+  }
+}
 .header-border {
   border-bottom: black solid 4px;
   border-top: #0a0808 solid 4px;
@@ -41,7 +46,7 @@ header nav a {
 }
 header nav a:hover {
   transition: all 0.5s;
-  background: #c51236;
+  background: #ad102f;
 }
 .jumbotron {
   border-left: black solid 8px;
@@ -61,7 +66,7 @@ header nav a:hover {
   height: 100%;
 }
 .jumbotron .jumbo-top img {
-  height: 100%;
+  max-width: 174px;
   border: black solid 5px;
 }
 .jumbotron .jumbo-top h1 {
@@ -72,34 +77,88 @@ header nav a:hover {
   padding: 10px;
   font-size: 18px;
 }
+@media (max-width: 800px) {
+  .jumbotron .jumbo-top {
+    display: flex;
+    justify-content: center;
+    align-items: space-evenly;
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+}
 .main-section {
   display: flex;
-  justify-content: space-between;
+  justify-content: stretch;
   align-items: flex-top;
   flex-direction: row;
   flex-wrap: nowrap;
   height: 100%;
-  padding: 0 25px;
+  margin: 0 25px;
 }
 .main-section .about-me {
-  width: 25vh;
+  width: 30%;
   padding: 0 15px;
-  border-right: #c51236 solid 1px;
+  border-right: #ad102f solid 3px;
 }
 .main-section .skill-history {
-  padding: 0 15px;
+  padding: 0 20px;
 }
 .main-section h2 {
-  font-size: 2rem;
-  padding: 5px 0;
+  font-size: 1.5rem;
+  padding: 2px 0;
 }
 .main-section li {
   font-size: 18px;
   font-weight: 500;
 }
+@media (max-width: 800px) {
+  .main-section {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+  .main-section .about-me {
+    border: none;
+    border-bottom: #ad102f solid 3px;
+    width: 100%;
+  }
+}
+.contact {
+  padding: 20px 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+.contact form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+.contact form input {
+  margin: 5px 0;
+}
+.contact form input .name {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+.contact form #email {
+  width: 100%;
+}
 footer {
-  background: #c51236;
-  height: 30px;
+  background: #ad102f;
+  height: 45px;
   color: white;
   text-align: center;
+}
+footer p {
+  padding: 15px;
 }

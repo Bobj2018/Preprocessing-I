@@ -11,15 +11,8 @@ body {
 }
 
 @primaryColor: crimson;
-@secondaryColor: darken(crimson, 5%);
-
-.container {
-	width: 800px;
-	// height: 150vh;
-	margin: 0 auto;
-	background: white;
-	// .flex(space-between, center, column, nowrap);
-}
+@secondaryColor: darken(@primaryColor, 10%);
+@triadColor: lighten(@primaryColor, 5%);
 
 .flex(@justify, @align, @direction, @wrap) {
 	display: flex;
@@ -27,6 +20,22 @@ body {
 	align-items: @align;
 	flex-direction: @direction;
 	flex-wrap: @wrap;
+}
+
+.borderSides() {
+	border-left: black solid 8px;
+	border-right: black solid 8px;
+}
+
+.container {
+	width: 800px;
+	// height: 10vh;
+	margin: 0 auto;
+	background: white;
+	@media (max-width: 800px) {
+		width: 100%;
+		// background: red;
+	}
 }
 
 .header-border {
@@ -58,8 +67,7 @@ header {
 
 .jumbotron {
 	// background: silver;
-	border-left: black solid 8px;
-	border-right: black solid 8px;
+	.borderSides;
 	padding: 20px;
 	height: 50vh;
 	margin: 25px;
@@ -69,7 +77,7 @@ header {
 		text-align: center;
 		height: 100%;
 		img {
-			height: 100%;
+			max-width: 174px;
 			border: black solid 5px;
 		}
 
@@ -83,41 +91,75 @@ header {
 			font-size: 18px;
 		}
 	}
+
+	@media (max-width: 800px) {
+		.jumbo-top {
+			.flex(center, space-evenly, column, nowrap);
+		}
+	}
 }
 
 .main-section {
-	.flex(space-between, flex-top, row, nowrap);
+	.flex(stretch, flex-top, row, nowrap);
 	height: 100%;
-	padding: 0 25px;
+	margin: 0 25px;
 
 	.about-me {
-		width: 25vh;
+		width: 30%;
 		padding: 0 15px;
-		border-right: @secondaryColor solid 1px;
+		border-right: @secondaryColor solid 3px;
 	}
 
 	.skill-history {
-		padding: 0 15px;
+		padding: 0 20px;
 	}
 
 	h2 {
-		font-size: 2rem;
-		padding: 5px 0;
-	}
-
-	p {
+		font-size: 1.5rem;
+		padding: 2px 0;
 	}
 
 	li {
 		font-size: 18px;
 		font-weight: 500;
 	}
+	@media (max-width: 800px) {
+		.flex(center, stretch, column, nowrap);
+
+		.about-me {
+			border: none;
+			border-bottom: @secondaryColor solid 3px;
+			width: 100%;
+		}
+	}
+}
+
+.contact {
+	// background: @triadColor;
+	// border-top: @secondaryColor solid 3px;
+	padding: 20px 50px;
+	.flex(center,center,column, nowrap);
+	form {
+		.flex(center,center,column, nowrap);
+		input {
+			margin: 5px 0;
+			.name {
+				.flex(space-between, center, row, nowrap);
+			}
+		}
+
+		#email {
+			width: 100%;
+		}
+	}
 }
 
 footer {
 	background: @secondaryColor;
-	height: 30px;
+	height: 45px;
 	color: white;
 	text-align: center;
-	// padding: 8px;
+	p {
+		padding: 15px;
+	}
 }
